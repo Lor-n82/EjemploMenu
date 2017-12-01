@@ -3,9 +3,11 @@ package com.example.in2dm3_03.ejemplomenu;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         t1=(EditText) findViewById(R.id.editTextTexto);
 
+        TextView text=(TextView)findViewById(R.id.textView);
+
+        registerForContextMenu(text); //este texto va a tener menu de contexto
     }
 
     @Override
@@ -42,6 +47,16 @@ public class MainActivity extends AppCompatActivity {
 
         //crearMenu(menu);
         return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_ejemplo,menu);
+
+        //crearMenu(menu);
     }
 
     private void crearMenu(Menu menu) {
