@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +36,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        crearMenu(menu);
+
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_ejemplo,menu);
+
+        //crearMenu(menu);
         return true;
     }
 
@@ -60,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             int itemId= item.getItemId();
 
             switch (itemId){
-                case OPCION_1:
+                case R.id.opc1:
                     Toast.makeText(this,"Opcion 1 elegida",Toast.LENGTH_LONG ).show();
                     recogerTexto();
                     Intent i1=new Intent(this, Recibir.class);
@@ -68,19 +75,19 @@ public class MainActivity extends AppCompatActivity {
 
                     startActivity(i1);
                     break;
-                case OPCION_2:
+                case R.id.opc2:
                     Toast.makeText(this,"Opcion 2 elegida",Toast.LENGTH_LONG ).show();
                     break;
-                case OPCION_3:
+                case R.id.opc3:
                     Toast.makeText(this,"Opcion 3 elegida",Toast.LENGTH_LONG ).show();
                     break;
-                case OPCION_4:
+                case R.id.opc4:
                     Toast.makeText(this,"Opcion 4 elegida",Toast.LENGTH_LONG ).show();
                     break;
-                case OPCION_5:
+                case R.id.opc5:
                     Toast.makeText(this,"Opcion 5 elegida",Toast.LENGTH_LONG ).show();
                     break;
-                case OPCION_6:
+                case R.id.opc6:
                     Toast.makeText(this,"Opcion 6 elegida",Toast.LENGTH_LONG ).show();
                     break;
             }
